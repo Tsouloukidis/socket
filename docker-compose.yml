@@ -1,9 +1,12 @@
 version: "3"
 services:
   socket:
-    build: .
+    image: node:10.15.2
     ports:
-      - "8000:3015"
+      - "3015:3015"
+    volumes:
+      - .:/socket
+    command: bash -c "npm install && node socket.js"
     networks:
       - traefik_public
     deploy:
