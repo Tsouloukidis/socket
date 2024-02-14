@@ -1,7 +1,7 @@
 version: "3"
 services:
   socket:
-    image: node-socket
+    build: .
     ports:
       - "8000:3015"
     networks:
