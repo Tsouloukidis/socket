@@ -4,8 +4,6 @@ services:
     image: node-socket
     ports:
       - "8000:3015"
-    volumes:
-      - /mnt/storage-pool/socket:/socket
     networks:
       - traefik_public
     deploy:
