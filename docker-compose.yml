@@ -12,10 +12,10 @@ services:
     deploy:
       labels:
         - traefik.enable=true
-        # - traefik.http.routers.directus.entrypoints=https
-        # - traefik.http.routers.directus.rule=Host(`directus.sw.hybrid-class.gr`)
-        # - traefik.http.routers.directus.service=directus
-        # - traefik.http.services.directus.loadbalancer.server.port=8055
+        - traefik.http.routers.socket.entrypoints=https
+        - traefik.http.routers.socket.rule=Host(`socket.sw.hybrid-class.gr`)
+        - traefik.http.routers.socket.service=socket
+        - traefik.http.services.socket.loadbalancer.server.port=3015
         - traefik.docker.network=traefik_public
       placement:
         constraints:
