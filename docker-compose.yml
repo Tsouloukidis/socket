@@ -1,6 +1,24 @@
 version: "3"
 services:
-  web:
-    build: .
+  socket:
+    image: node-socket
     ports:
       - "8000:3015"
+    volumes:
+      - /mnt/storage-pool/socket:/socket
+    networks:
+      - traefik_public
+    deploy:
+      labels:
+        - traefik.enable=true
+        # - traefik.http.routers.directus.entrypoints=https
+        # - traefik.http.routers.directus.rule=Host(`directus.sw.hybrid-class.gr`)
+        # - traefik.http.routers.directus.service=directus
+        # - traefik.http.services.directus.loadbalancer.server.port=8055
+        - traefik.docker.network=traefik_public
+      placement:
+        constraints:
+          - node.role == manager
+networks:
+  traefik_public:
+    external: true
