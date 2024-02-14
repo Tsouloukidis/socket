@@ -6,7 +6,7 @@ services:
       - "3015:3015"
     volumes:
       - /mnt/storage-pool/socket:/socket
-    command: bash -c "npm install && node socket.js"
+    command: bash -c "npm install && node index.js"
     networks:
       - traefik_public
     deploy:
