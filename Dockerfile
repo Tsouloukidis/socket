@@ -7,4 +7,4 @@ COPY . /socket
 RUN npm install
 
 EXPOSE 3015
-CMD node index.js
+CMD node socket.js
